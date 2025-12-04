@@ -1,0 +1,49 @@
+#header{
+    background-color: var(--blue-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#headerContent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 1440px;
+}
+
+#headerContentLeft{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: var(--white-color);
+}
+#headerContentLeftImg{
+    width: 80px;
+    height: 80px;
+}
+
+#headerContentLeftH1{
+    font-size: 30px;
+}
+
+#headerContentRightInput{
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: 4px solid var(--black-color);
+}
+
+#headerContentRightInput:hover{
+    border: var(--red-color) 4px solid;
+}
+
+#headerContentRightInput:focus{
+    border: 4px solid var(--gold-color);
+}
+
+
+
