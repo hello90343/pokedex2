@@ -1,6 +1,4 @@
 const mainContent = document.getElementById("mainContent");
-const mainPagesMore = document.getElementById("mainPagesMore");
-const mainPagesLess = document.getElementById("mainPagesLess");
 
 const cacheTotal = [];
 const cacheAllCards = [];
@@ -11,6 +9,8 @@ const colorsSecond = [];
 
 let morePages = 20;
 let lessPages = 0;
+let morePagesContent = 2;
+let lessPagesContent = 1;
 let total;
 
 const init = () => {
@@ -153,22 +153,45 @@ const getRenderCards = async () => {
     
     html += `  <div id="mainPagesInfos">
                <div id="mainPagesBtnDiv">
-               <button onclick="morePagesUpgrade()" class="mainPagesBtnLess "id="mainPagesLess">1</button>
-               <button onclick="morePagesUpgrade()" class="mainPagesBtnMore" id="mainPagesMore">2</button>
+               <button onclick="lessPagesUpgrade()" class="mainPagesBtnLess" id="mainPagesLess">${lessPagesContent}</button>
+               <button onclick="morePagesUpgrade()" class="mainPagesBtnMore" id="mainPagesMore">${morePagesContent}</button>
                </div>
-               <p>${siteNumber()} Seitenanzahl</p>
+               <p>${siteNumber()} side numbers</p>
                </div>
                `;             
     mainContent.innerHTML += html;
 };
 
 const morePagesUpgrade = () => {
+    window.scrollTo({ top: 0});
     morePages += 20;
+    lessPages += 20;
+    morePagesContent++;
+    if(morePagesContent > siteNumber()){
+    morePages = 20;
+    lessPages = 0;
+    morePagesContent = 2;
+    }
+    if(lessPagesContent === 66) lessPagesContent = 1;
     getRenderCards();
 }
 
 const lessPagesUpgrade = () => {
-
+    window.scrollTo({ top: 0});
+    morePages -= 20;
+    lessPages -= 20;
+    if(lessPagesContent < 2) morePagesContent--;
+    if(morePagesContent > lessPagesContent) lessPagesContent--;
+    if(0 === lessPagesContent){
+        lessPagesContent = 1;
+    }
+    if(morePagesContent == lessPagesContent) {
+    lessPagesContent = siteNumber() - 1;    
+    morePagesContent = siteNumber(); 
+    morePages = total;
+    lessPages = total - 20;  
+    }
+    getRenderCards();
 }
 
 const upper = (name) => {
