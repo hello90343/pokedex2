@@ -10,7 +10,8 @@ const colors = [];
 const colorsSecond = [];
 
 let morePages = 20;
-let lessPages =0;
+let lessPages = 0;
+let total;
 
 const init = () => {
     loadingStart();
@@ -31,7 +32,7 @@ const getTotal = async () => {
 
         for(let i = 0; i < cacheTotal.length; i++){
             const key = cacheTotal[i];
-            let total = key.count;
+            total = key.count;
             getAllCardsBase(total);
         }
     } catch (error) {
@@ -150,10 +151,12 @@ const getRenderCards = async () => {
     }
     html += `</section>`;
     
-    html += ` 
+    html += `  <div id="mainPagesInfos">
                <div id="mainPagesBtnDiv">
-               <button onclick="morePagesUpgrade()" class="mainPagesBtn "id="mainPagesLess">1</button>
-               <button onclick="morePagesUpgrade()" class="mainPagesBtn" id="mainPagesMore">2</button>
+               <button onclick="morePagesUpgrade()" class="mainPagesBtnLess "id="mainPagesLess">1</button>
+               <button onclick="morePagesUpgrade()" class="mainPagesBtnMore" id="mainPagesMore">2</button>
+               </div>
+               <p>${siteNumber()} Seitenanzahl</p>
                </div>
                `;             
     mainContent.innerHTML += html;
@@ -164,8 +167,16 @@ const morePagesUpgrade = () => {
     getRenderCards();
 }
 
+const lessPagesUpgrade = () => {
+
+}
+
 const upper = (name) => {
     const transfromOne = name.charAt(0).toUpperCase();
     const transformTwo = name.slice(1).toLowerCase();
     return transfromOne + transformTwo;
+}
+
+const siteNumber = () => {
+    return Math.ceil(total/20);
 }

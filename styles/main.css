@@ -1,22 +1,38 @@
 #main{
     background-color: var( --darkblue_color);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     padding-top: 50px;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#mainPagesInfos{
+    display: flex;
+    gap: 20px;
+    background-color: var(--blue-color);
+    padding: 20px 100px;
+    width: 100%;
+    justify-content: center;
+    border-radius: 20px 20px 0px 0px;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 75px;
 }
 
 #mainPagesBtnDiv{
     display: flex;
-    gap: 20px;
-    background-color: var(--blue-color);
-    padding: 20px;
-    width: 100%;
+    gap: 30px;
     justify-content: center;
-    border-radius: 20px 20px 0px 0px;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    padding-top: 50px;
 }
 
-.mainPagesBtn{
-    width: 200px;
+.mainPagesBtnLess{
+    width: 100%;
+    min-width: 130px;
     height: 50px;
     border-radius: 10px;
     outline: none;
@@ -24,8 +40,27 @@
     background-color: var(--white-color);
 }
 
-.mainPagesBtn:hover{
+.mainPagesBtnLess:hover{
     background-color: var(--black-color);
+    border: var(--black-color) 4px solid;
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+.mainPagesBtnMore{
+    width: 100%;
+    min-width: 130px;
+    height: 50px;
+    border-radius: 10px;
+    outline: none;
+    border: var(--white-color) 4px solid;
+    background-color: var(--green-color);
+    color: var(--white-color);
+}
+
+.mainPagesBtnMore:hover{
+    border: var(--green-color) 4px solid;
+    background-color: var(--green-color);
     color: var(--white-color);
     cursor: pointer;
 }
@@ -45,3 +80,26 @@
 #externBtn:focus{
     border: 4px solid var(--gold-color);
 }
+
+#mainFooter{
+    background-color: var(--white-color);
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mainFooter ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#mainFooter ul li a{
+    color: var(--black-color);
+    text-decoration: none;
+}
+
+
