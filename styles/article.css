@@ -1,0 +1,81 @@
+#mainContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    color: var(--white-color);
+}
+
+#mainContentSection{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1400px;
+    width: 100%;
+    gap: 40px;
+}
+
+.mainContentSectionArticle{
+    border: var(--black-color) 4px solid;
+    width: 500px;
+    height: auto;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 280px;
+    transition: transform 0.5s ease;
+}
+
+.mainContentSectionArticle:hover{
+    transform: scale(1.1);
+    border: var(--red-color) 4px solid;
+}
+
+.mainContentSectionArticleHeader{
+    display: flex;
+    height: auto;
+    padding: 15px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--darklightblue-color);
+    color: var(--white-color);
+    border-radius: 20px 20px 0px 0px;
+}
+
+.mainContentSectionArticleHeader h3{
+    width: 125px;
+    text-align: center;
+}
+
+.mainContentSectionArticleHeader p{
+    position: absolute;
+    left: 10px;
+}
+
+.mainContentSectionArticleDiv{
+    padding-top: 75px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.mainContentSectionArticleDivImg {
+    width: 200px;
+    height: auto;
+}
+
+.mainContentSectionArticleFooter{
+    background-color: var(--darklightblue-color);
+    height: 60px;
+    width: 100%;
+    border-radius: 0px 0px 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+
+

@@ -1,0 +1,154 @@
+.type_normal{
+    background-color: #A8A77A;
+}
+
+.type_fire{
+    background-color: #EE8130;
+}
+
+.type_water{
+    background-color: #6390F0;
+}
+
+.type_electric{
+    background-color: #F7D02C;
+}
+
+.type_grass{
+    background-color: #7AC74C;
+}
+
+.type_ice{
+    background-color: #96D9D6;
+}
+
+.type_fighting{
+    background-color: #C22E28;
+}
+
+.type_poison{
+    background-color: #A33EA1;
+}
+
+.type_ground{
+    background-color: #E2BF65;
+}
+
+.type_flying{
+    background-color: #A98FF3;
+}
+
+.type_psychic{
+    background-color: #F95587;
+}
+
+.type_bug{
+    background-color: #A6B91A;
+}
+
+.type_rock{
+    background-color: #B6A136;
+}
+
+.type_ghost{
+    background-color: #735797;
+}
+
+.type_dragon{
+    background-color: #6F35FC;
+}
+
+.type_dark{
+    background-color: #705746;
+}
+
+.type_steel{
+    background-color: #B7B7CE;
+}
+
+.type_fairy{
+    background-color: #D685AD;
+}
+
+.type_none{
+    background-color: var(--white-color);
+}
+
+.mainContentSectionArticleIcons_normal{
+    background-color: #A8A77A;
+}
+
+.mainContentSectionArticleIcons_fire{
+    background-color: #EE8130;
+}
+
+.mainContentSectionArticleIcons_water{
+    background-color: #6390F0;
+}
+
+.mainContentSectionArticleIcons_electric{
+    background-color: #F7D02C;
+}
+
+.mainContentSectionArticleIcons_grass{
+    background-color: #7AC74C;
+}
+
+.mainContentSectionArticleIcons_ice{
+    background-color: #96D9D6;
+}
+
+.mainContentSectionArticleIcons_fighting{
+    background-color: #C22E28;
+}
+
+.mainContentSectionArticleIcons_poison{
+    background-color: #A33EA1;
+}
+
+.mainContentSectionArticleIcons_ground{
+    background-color: #E2BF65;
+}
+
+.mainContentSectionArticleIcons_flying{
+    background-color: #A98FF3;
+}
+
+.mainContentSectionArticleIcons_psychic{
+    background-color: #F95587;
+}
+
+.mainContentSectionArticleIcons_bug{
+    background-color: #A6B91A;
+}
+
+.mainContentSectionArticleIcons_rock{
+    background-color: #B6A136;
+}
+
+.mainContentSectionArticleIcons_ghost{
+    background-color: #735797;
+}
+
+.mainContentSectionArticleIcons_dragon{
+    background-color: #6F35FC;
+}
+
+.mainContentSectionArticleIcons_dark{
+    background-color: #705746;
+}
+
+.mainContentSectionArticleIcons_steel{
+    background-color: #B7B7CE;
+}
+
+.mainContentSectionArticleIcons_fairy{
+    background-color: #D685AD;
+}
+
+.mainContentSectionArticleFooter img{
+    width: 30px;
+    height: auto;
+    padding: 5px;
+    border-radius: 5px;
+}

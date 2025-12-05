@@ -1,0 +1,47 @@
+#main{
+    background-color: var( --darkblue_color);
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+#mainPagesBtnDiv{
+    display: flex;
+    gap: 20px;
+    background-color: var(--blue-color);
+    padding: 20px;
+    width: 100%;
+    justify-content: center;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.mainPagesBtn{
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    outline: none;
+    border: var(--black-color) 4px solid;
+    background-color: var(--white-color);
+}
+
+.mainPagesBtn:hover{
+    background-color: var(--black-color);
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+#externBtn{
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: 4px solid var(--black-color);
+    width: 250px;
+}
+
+#externBtn:hover{
+    border: var(--red-color) 4px solid;
+}
+
+#externBtn:focus{
+    border: 4px solid var(--gold-color);
+}
