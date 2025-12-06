@@ -1,4 +1,5 @@
 const mainContent = document.getElementById("mainContent");
+const headerContentRightInput = document.getElementById("headerContentRightInput");
 
 const cacheTotal = [];
 const cacheAllCards = [];
@@ -57,10 +58,10 @@ const getAllCardsBase = async (total) => {
 
 const getAllCardsBaseResults = async () => {
     mainContent.innerHTML = `
-                             <p>By entering your favorite Pokémon, you will gain faster access to the website.</p>
-                             <input id="externBtn" placeholder="Your favourite pokemon">
-                             <p>Loading...</p>
-                             `;
+        <p>By entering your favorite Pokémon, you will gain faster access to the website.</p>
+        <input id="externBtn" placeholder="Your favourite pokemon">
+        <p>Loading...</p>
+    `;
     try{
         for(let i = 0; i < cacheAllCards.length; i++) {
             const key = cacheAllCards[i];
@@ -71,7 +72,6 @@ const getAllCardsBaseResults = async () => {
                 cacheAllCardsResults.push(pokemon);
             }
         }
-
         getImgs();
         getColors();
         getIconSecond();
@@ -151,14 +151,15 @@ const getRenderCards = async () => {
     }
     html += `</section>`;
     
-    html += `  <div id="mainPagesInfos">
-               <div id="mainPagesBtnDiv">
-               <button onclick="lessPagesUpgrade()" class="mainPagesBtnLess" id="mainPagesLess">${lessPagesContent}</button>
-               <button onclick="morePagesUpgrade()" class="mainPagesBtnMore" id="mainPagesMore">${morePagesContent}</button>
-               </div>
-               <p>${siteNumber()} side numbers</p>
-               </div>
-               `;             
+    html += `  
+    <div id="mainPagesInfos">
+        <div id="mainPagesBtnDiv">
+            <button onclick="lessPagesUpgrade()" class="mainPagesBtnLess" id="mainPagesLess">${lessPagesContent}</button>
+            <button onclick="morePagesUpgrade()" class="mainPagesBtnMore" id="mainPagesMore">${morePagesContent}</button>
+        </div>
+        <p>${siteNumber()} side numbers</p>
+    </div>`;
+             
     mainContent.innerHTML += html;
 };
 
@@ -168,9 +169,9 @@ const morePagesUpgrade = () => {
     lessPages += 20;
     morePagesContent++;
     if(morePagesContent > siteNumber()){
-    morePages = 20;
-    lessPages = 0;
-    morePagesContent = 2;
+        morePages = 20;
+        lessPages = 0;
+        morePagesContent = 2;
     }
     if(lessPagesContent === 66) lessPagesContent = 1;
     getRenderCards();
@@ -186,10 +187,10 @@ const lessPagesUpgrade = () => {
         lessPagesContent = 1;
     }
     if(morePagesContent == lessPagesContent) {
-    lessPagesContent = siteNumber() - 1;    
-    morePagesContent = siteNumber(); 
-    morePages = total;
-    lessPages = total - 20;  
+        lessPagesContent = siteNumber() - 1;    
+        morePagesContent = siteNumber(); 
+        morePages = total;
+        lessPages = total - 20;  
     }
     getRenderCards();
 }
@@ -203,3 +204,69 @@ const upper = (name) => {
 const siteNumber = () => {
     return Math.ceil(total/20);
 }
+
+const searchInput = () => {
+    const value = headerContentRightInput.value;
+    if (value.length >= 3) filterCards(value);
+}
+
+const filterCards = (text) => {
+    const results = [];
+    for (let i = 0; i < cacheAllCardsResults.length; i++) {
+        const key = cacheAllCardsResults[i];
+        const name = key.name.toLowerCase();
+        if (name.includes(text)) { 
+            const resultObj = {
+                pokemon: key,
+                img: imgs[i],
+                color: colors[i],
+                colorSecond: colorsSecond[i],
+                index: i
+            };
+            results.push(resultObj);
+        }
+    }
+    renderFilteredCards(results);
+};
+
+const renderFilteredCards = (results) => {
+    mainContent.innerHTML = "";
+    let html = `<section id="mainContentSection">`;
+    if (results.length === 0) {
+        mainContent.innerHTML = "<p>No Pokémon found.</p>";
+        return;
+    }
+    for (let i = 0; i < results.length; i++) {
+        const key = results[i].pokemon;
+        const img = results[i].img;
+        const color = results[i].color;
+        const index = results[i].index;
+
+        html += `
+                   <article class="mainContentSectionArticle">
+                       <header class="mainContentSectionArticleHeader">
+                           <p>#${key.id}</p>
+                           <h3>${upper(key.name)}</h3>
+                       </header>
+                   `;
+
+        html += img === "none"
+                  ? `<div class="mainContentSectionArticleDiv type_${color}">
+                    <img class="mainContentSectionArticleDivImg" src="./assets/imgs/noImg.png">
+                     </div>`
+                  : `<div class="mainContentSectionArticleDiv type_${color}">
+                    <img class="mainContentSectionArticleDivImg" src="${img}">
+                     </div>`;
+
+        html += `
+                   <footer class="mainContentSectionArticleFooter">
+                       <img class="mainContentSectionArticleIcons_${color}" src="./assets/icons/${color}.svg">
+                              ${returnIconSecond(index)}
+                   </footer>
+               </article>
+               `;
+    }
+
+    html += `</section>`;
+    mainContent.innerHTML = html;
+};
